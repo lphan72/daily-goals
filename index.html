@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Goals</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Comment 1. Two script files. storage.js is shared by both pages,
+    so it must load first. "defer" waits until the HTML is ready (same as Example 2). -->
+    <script src="js/storage.js" defer></script>
+    <script src="js/today.js" defer></script>
+</head>
+
+<body>
+    <!-- Comment 2. The same menu goes on both pages (same idea as Example 1). -->
+    <header class="menu">
+        <a href="index.html" class="site-title">Daily Goals</a>
+        <nav class="menu-links">
+            <a href="index.html" class="active">Today</a>
+            <a href="stats.html">Monthly Stats</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <h1>Today</h1>
+        <!-- Comment 3. today.js writes today's date in here. -->
+        <p id="today-date" class="subtitle"></p>
+
+        <!-- Comment 4. A form lets the user press Enter OR click the button to add a goal. -->
+        <form id="goal-form" class="goal-form">
+            <label for="goal-input" class="visually-hidden">New goal</label>
+            <input type="text" id="goal-input" placeholder="What do you want to do today?" maxlength="100"
+                autocomplete="off">
+            <button type="submit">Add</button>
+        </form>
+
+        <!-- Comment 5. Progress bar. The black part grows as you finish goals. -->
+        <div class="progress">
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <p id="progress-text">0 of 0 done</p>
+        </div>
+
+        <!-- Comment 6. today.js fills this list (like the order list in Example 5). -->
+        <ul id="goal-list" class="goal-list"></ul>
+        <p id="empty" class="empty">No goals yet. Add your first one above!</p>
+
+        <button id="clear-done" class="secondary">Remove finished goals</button>
+    </main>
+</body>
+
+</html>

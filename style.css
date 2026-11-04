@@ -1,0 +1,325 @@
+/* style.css is shared by both pages. Colors: black and white only. */
+
+/* Comment 1. Variables: change a color here and it changes everywhere. */
+:root {
+    --black: #111111;
+    --white: #ffffff;
+    --gray-light: #eeeeee;
+    --gray: #888888;
+}
+
+/* Comment 2. Reset (same as Example 1) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--white);
+    color: var(--black);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+a {
+    color: var(--black);
+}
+
+/* ---------- Menu bar (like Example 1) ---------- */
+.menu {
+    background: var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* On small phones, links move to a new line instead of overlapping */
+    gap: 10px 20px;
+    padding: 16px 24px;
+}
+
+.menu a {
+    color: var(--white);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.menu a:hover {
+    opacity: 0.7;
+}
+
+.site-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.menu-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* The page you are on gets an underline */
+.menu-links a.active {
+    border-bottom: 2px solid var(--white);
+}
+
+/* ---------- Page layout ---------- */
+.page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 32px 16px;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 32px 0 12px;
+}
+
+.subtitle {
+    color: var(--gray);
+    margin-bottom: 24px;
+}
+
+.empty {
+    color: var(--gray);
+    text-align: center;
+    padding: 24px 0;
+}
+
+/* Hides text from the eye but keeps it for screen readers */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+/* ---------- Buttons and inputs ---------- */
+button {
+    background: var(--black);
+    color: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #333333;
+}
+
+/* White button with a black border */
+button.secondary {
+    background: var(--white);
+    color: var(--black);
+}
+
+button.secondary:hover {
+    background: var(--gray-light);
+}
+
+button:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.goal-form {
+    display: flex;
+    gap: 8px;
+}
+
+.goal-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 2px solid var(--black);
+    border-radius: 6px;
+}
+
+/* ---------- Progress bar ---------- */
+.progress {
+    margin: 24px 0;
+}
+
+.progress-bar {
+    height: 12px;
+    border: 2px solid var(--black);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--black);
+    transition: width 0.3s ease; /* The bar slides instead of jumping */
+}
+
+#progress-text {
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--gray);
+}
+
+/* ---------- Goal list ---------- */
+.goal-list {
+    list-style: none;
+    margin-bottom: 16px;
+}
+
+.goal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gray-light);
+    padding: 4px 0;
+}
+
+.goal label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    cursor: pointer;
+    word-break: break-word;
+}
+
+.goal input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    accent-color: var(--black);
+    cursor: pointer;
+}
+
+/* Finished goals are gray with a line through them */
+.goal.done span {
+    color: var(--gray);
+    text-decoration: line-through;
+}
+
+.remove {
+    background: none;
+    color: var(--gray);
+    border: none;
+    font-size: 22px;
+    padding: 4px 10px;
+}
+
+.remove:hover {
+    background: none;
+    color: var(--black);
+}
+
+/* ---------- Stats page ---------- */
+.month-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.month-switcher h2 {
+    margin: 0;
+}
+
+/* Grid with 2 columns of cards */
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.card {
+    border: 2px solid var(--black);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.card-number {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.card-label {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+/* Calendar: 7 columns, one per weekday */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.weekday {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray);
+}
+
+.day {
+    aspect-ratio: 1; /* Always a square */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 13px;
+    border: 1px solid var(--gray-light);
+}
+
+/* 5 shades from white to black */
+.level-0 { background: var(--white); }
+.level-1 { background: #cccccc; }
+.level-2 { background: #999999; }
+.level-3 { background: #555555; color: var(--white); }
+.level-4 { background: var(--black); color: var(--white); }
+
+.day.today {
+    outline: 2px solid var(--black);
+    outline-offset: 2px;
+}
+
+.day.future {
+    opacity: 0.3;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--gray);
+}
+
+.legend .day {
+    width: 14px;
+    height: 14px;
+}
+
+.top-goals {
+    padding-left: 24px;
+}
+
+.top-goals li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.top-goals li span {
+    text-transform: capitalize;
+}
+
+.top-goals li strong {
+    float: right;
+}

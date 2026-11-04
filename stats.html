@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Stats</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/storage.js" defer></script>
+    <script src="js/stats.js" defer></script>
+</head>
+
+<body>
+    <header class="menu">
+        <a href="index.html" class="site-title">Daily Goals</a>
+        <nav class="menu-links">
+            <a href="index.html">Today</a>
+            <a href="stats.html" class="active">Monthly Stats</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <h1>Monthly Stats</h1>
+        <p id="demo-note" class="subtitle" hidden>
+            You are looking at sample data. <a href="stats.html">Back to my data</a>
+        </p>
+
+        <!-- Comment 1. Buttons to move between months. -->
+        <div class="month-switcher">
+            <button id="prev-month" class="secondary" aria-label="Previous month">&larr;</button>
+            <h2 id="month-name"></h2>
+            <button id="next-month" class="secondary" aria-label="Next month">&rarr;</button>
+        </div>
+
+        <!-- Comment 2. Four number cards. stats.js puts the numbers in. -->
+        <section class="cards">
+            <div class="card">
+                <p class="card-number" id="stat-done">0</p>
+                <p class="card-label">Goals completed</p>
+            </div>
+            <div class="card">
+                <p class="card-number" id="stat-rate">0%</p>
+                <p class="card-label">Completion rate</p>
+            </div>
+            <div class="card">
+                <p class="card-number" id="stat-days">0</p>
+                <p class="card-label">Days with goals</p>
+            </div>
+            <div class="card">
+                <p class="card-number" id="stat-perfect">0</p>
+                <p class="card-label">Perfect days</p>
+            </div>
+        </section>
+
+        <!-- Comment 3. A calendar. Darker squares = more goals finished that day. -->
+        <h2>Calendar</h2>
+        <div class="calendar" id="calendar"></div>
+        <div class="legend">
+            <span>Less</span>
+            <span class="day level-0"></span>
+            <span class="day level-1"></span>
+            <span class="day level-2"></span>
+            <span class="day level-3"></span>
+            <span class="day level-4"></span>
+            <span>More</span>
+        </div>
+
+        <!-- Comment 4. The goals you finished most often this month. -->
+        <h2>Top goals</h2>
+        <ol id="top-goals" class="top-goals"></ol>
+        <p id="no-data" class="empty">No goals this month yet.
+            <a href="stats.html?demo=1">See an example with sample data</a>
+        </p>
+    </main>
+</body>
+
+</html>
